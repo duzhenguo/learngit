@@ -1,0 +1,49 @@
+1基于Struts2框架的web应用开发流程总结
+  (1) 创建Web项目,添加开发基于Struts2框架的Web项目所需的Jar包
+  (2)创建Web项目的视图
+  (3)创建业务控制器类(action)
+  (4)创建struts.xml文件
+  (5)编辑web.xml文件
+  (6)发布Web项目并测试
+
+2 result 的类型结果
+  返回类型type
+  (1)dispatcher 默认转发
+  (2)redirect   重定向
+  (3)chain      返回结果之后转发
+  (4)redirectAction 返回结果之后重定向
+  name配置
+  (1)success
+  (2)none
+  (3)error
+  (4)input
+  (5)login
+  当然了只有我们的action继承ActionSupport 这个类才可以使用下面的结果代码，如下所示：
+    public interface Action
+     {
+        public static final String SUCCESS = “success”;
+        public static final String NONE = “none”;
+        public static final String ERROR = “error”;
+        public static final String INPUT = “input”;
+        public static final String LOGIN = “login”;
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
