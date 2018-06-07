@@ -10,7 +10,9 @@
     name: 指定请求的action名称
 	class: 指定业务处理类(含包名)默认的类为ActionSupport
 	method:指定业务处理类中调用的方法 默认的方法为execute
-   
+  <action name="" class="" method="">
+      <result name="">/url</result>
+  </action>
   result 的类型结果
   返回类型type
   (1)dispatcher 默认转发
