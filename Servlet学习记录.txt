@@ -1,0 +1,53 @@
+同一用户的不同页面共享数据(cookie)
+一 如何使用session
+   1 得到session
+       HttpSession hs = request.getSession(true);
+   2 向session添加属性
+       hs.setAttribute(String name,Object val);
+   3 从session得到某个属性
+       String name = hs.getAttribute(String name);
+   4 从session删除调某个属性
+       hs.removeAttribute(String name);
+	   session有有效时间（30分钟），时间已过属性自动删除
+	   <session-config>
+	      <session-timeout>30</session-timeout>
+	   </session-config>
+	5 修改session时间
+	   hs.setMaxInactiveInterval(); 单位是秒
+	   或者到tomcat配置文件中去修改，因为session是保存在服务器中死亡
+二 session的使用
+    网上商场中的购物车 
+	保存登录用户的信息 
+	将某些数据放入到Session中，供同一个用户的各个页面使用
+	防止用户非法登录到某个页面
+
+三 JDBC连接
+    Connection con = null;
+	Statement state = null;
+	Result rs =null;
+	try{
+       Class.forName("com.mysql.jdbc.Driver");
+	   con = DriverManager.getConnection("jdbc:mysql://losthost:3306/数据库名?characterEncoding=utf-8","root","123456");
+	   state = con.createStatement();
+	   String sql ="SQL语句";
+	   rs = state.executeQuery(sql);
+	   while(rs.next()){
+	   逻辑代码
+	   }
+	}catch(Exception e){
+	   e.printStackTrace(); 
+	}finally{
+	   try{
+	       if(rs!=null){
+		   rs.close();
+		   }
+		   if(state!=null){
+		   state.close();
+		   }
+		   if(con!=null){
+		   con.close();
+		   }
+	   }catch(SQLException e){
+	      e.printStackTrace();
+	   }
+	}
