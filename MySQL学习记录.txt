@@ -1,0 +1,11 @@
+1 在表中查询5条记录
+  select * from table limit 0,5
+  limit有两个整型x,y参数 x是位置 ，y表示偏移量 范围 y-x
+  limit 5 等价于 limit 0,5
+  如果你想得到最后几条数据可以多加个 order by id desc/asc
+  desc 降序          asc 升序
+  select * from table order by 属性名 desc/asc limit position， counter；
+
+2 mysql字符串拼接
+  "select * from table where id='"+id+"'"   
+ 
